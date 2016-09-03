@@ -15,8 +15,20 @@
 		localStorage.setItem("name",r)
 		}
 		document.write("Name: "+localStorage.getItem("name"))
-		
 	</script>
+	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
+
+<!-- Leave out Storage -->
+<!-- <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-storage.js"></script> -->
+
+<script>
+  var config = {
+    // ...
+  };
+  firebase.initializeApp(config);
+</script>
 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -26,19 +38,15 @@
     databaseURL: "https://website-3ff67.firebaseio.com",
     storageBucket: "",
   };
-	var Firebase = require("firebase");
-var myFirebaseRef = new Firebase("https://website-3ff67.firebaseio.com/");
   firebase.initializeApp(config);
-	myFirebaseRef.createUser({
-  email    : "bobtony@firebase.com",
-  password : "correcthorsebatterystaple"
-}, function(error, userData) {
-  if (error) {
-    console.log("Error creating user:", error);
-  } else {
-    console.log("Successfully created user account with uid:", userData.uid);
-  }
-});
+	var database = firebase.database();
+function writeUserData(userId, name, email) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+  });
+}
+	writeUserData(1,"Chris","spd545@gmail.com");
 </script>
     
 	<br />
