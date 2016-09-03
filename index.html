@@ -56,7 +56,7 @@ function newUser(){
 		document.getElementById('uname').value="";
 		document.getElementById('email').value="";
 		document.getElementById('pword').value="";
-		document.write("User created succesfully<br />");
+		document.write("User created succesfully");
 	}else{
 		alert("A field is blank")
 	}
@@ -75,7 +75,7 @@ function newUser(){
 		<textarea rows="1" cols="20" id="email"></textarea>
 		<br />
 		Password:
-		<textarea rows="1" cols="20" id="pword" type="password"></textarea>
+		<input rows="1" cols="20" id="pword" type="password" />
 		<br />
 		<button type="button" onclick="newUser()">Submit</button>
 	</body>
