@@ -1,20 +1,5 @@
 <!Doctype>
 <HTML>
-	<!--<script>
-		if(localStorage.clickcount){
-			localStorage.clickcount = Number(localStorage.clickcount)+1
-		}
-		else{
-			localStorage.clickcount = 1
-		}
-		document.write(localStorage.clickcount)
-		console.log("Hello")
-		document.write("<br>");
-		if(localStorage.clickcount==1){
-		localStorage.setItem("name",r)
-		}
-		document.write("Name: "+localStorage.getItem("name"))
-	</script>-->
 	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
@@ -46,6 +31,7 @@ function writeUserData(userId, name, email, pword) {
 	password: pword
   });
 }
+</script><script>
 function newUser(){
 	if(document.getElementById('uname').value!=""||document.getElementById('email').value!=""||document.getElementById('pword').value!=""){
 	var newPostKey = database.ref().child('users').push().key;
@@ -80,6 +66,24 @@ function newUser(){
 		<button type="button" onclick="newUser()">Submit</button>
 	</body>
 </HTML>
+
+
+	<!--<script>
+		if(localStorage.clickcount){
+			localStorage.clickcount = Number(localStorage.clickcount)+1
+		}
+		else{
+			localStorage.clickcount = 1
+		}
+		document.write(localStorage.clickcount)
+		console.log("Hello")
+		document.write("<br>");
+		if(localStorage.clickcount==1){
+		localStorage.setItem("name",r)
+		}
+		document.write("Name: "+localStorage.getItem("name"))
+	</script>-->
+
 <!--
 <git remote add origin <url>>
 git add .
