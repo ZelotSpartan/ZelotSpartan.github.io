@@ -41,14 +41,6 @@ function newUser(){
 		document.getElementById('uname').value="";
 		document.getElementById('email').value="";
 		document.getElementById('pword').value="";
-		document.write("User created succesfully");
-	firebase.auth().createUserWithEmailAndPassword(text2, text3).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-		console.log(errorCode+" "+errorMessage)
-  // ...
-	});
 	}else{
 		alert("A field is empty")
 	}
@@ -63,6 +55,9 @@ function getUser(){
 		console.log(errorCode+" "+errorMessage)
   // ...
 	});
+		document.getElementById('uname').value="";
+		document.getElementById('email').value="";
+		document.getElementById('pword').value="";
 }
 </script>
     
