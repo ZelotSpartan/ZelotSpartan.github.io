@@ -32,8 +32,8 @@ function writeUserData(userId, name, email, pword) {
   });
 }
 function newUser(){
-	var password = document.getElementById('pword');
-	var email = document.getElementById('email');
+	var password = document.getElementById('pword').value;
+	var email = document.getElementById('email').value;
 	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
