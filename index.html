@@ -39,8 +39,6 @@
   };
   firebase.initializeApp(config);
 	var database = firebase.database();
-	var r = prompt("What is your name")
-	var e = prompt("What is your email")
 function writeUserData(userId, name, email) {
   firebase.database().ref('users/' + userId).set({
     username: name,
@@ -48,7 +46,7 @@ function writeUserData(userId, name, email) {
   });
 }
 function newUser(){
-	if(document.getElementById('uname').value!=null||document.getElementById('pword').value!=null){
+	if(document.getElementById('uname').value!=n""||document.getElementById('pword').value!=""){
 	var newPostKey = database.ref().child('users').push().key;
 	var text1 = document.getElementById('uname').value;
 	var text2 = document.getElementById('pword').value;
