@@ -1,6 +1,6 @@
 <!Doctype>
 <HTML>
-	<script>
+	<!--<script>
 		if(localStorage.clickcount){
 			localStorage.clickcount = Number(localStorage.clickcount)+1
 		}
@@ -11,11 +11,10 @@
 		console.log("Hello")
 		document.write("<br>");
 		if(localStorage.clickcount==1){
-		var r = prompt("What is your name")
 		localStorage.setItem("name",r)
 		}
 		document.write("Name: "+localStorage.getItem("name"))
-	</script>
+	</script>-->
 	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
@@ -31,9 +30,6 @@
 </script>
 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 <script>
-	var r = prompt("What is your name")
-	var e = prompt("What is your email")
-	var newPostKey = firebase.database().ref().child('users').push().key;
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDDhkF38juuQ4SywjGVMagtbtKR8west_I",
@@ -43,6 +39,9 @@
   };
   firebase.initializeApp(config);
 	var database = firebase.database();
+	var r = prompt("What is your name")
+	var e = prompt("What is your email")
+	var newPostKey = database.ref().child('users').push().key;
 function writeUserData(userId, name, email) {
   firebase.database().ref('users/' + userId).set({
     username: name,
