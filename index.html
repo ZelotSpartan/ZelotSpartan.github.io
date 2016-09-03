@@ -26,6 +26,7 @@
     databaseURL: "https://website-3ff67.firebaseio.com",
     storageBucket: "",
   };
+	var Firebase = require("firebase");
 var myFirebaseRef = new Firebase("https://website-3ff67.firebaseio.com/");
   firebase.initializeApp(config);
 	myFirebaseRef.createUser({
