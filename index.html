@@ -1,16 +1,6 @@
 <!Doctype>
 <HTML>
 	<script>
-		console.log("Hello")
-		if(localStorage.getItem("name")=="null"||localStorage.getItem("name")==null){
-		var r = prompt("What is your name")
-		localStorage.setItem("name",r)
-		}
-		document.write("Name: "+localStorage.getItem("name"))
-		
-	</script>
-	<br />
-	<script>
 		if(localStorage.clickcount){
 			localStorage.clickcount = Number(localStorage.clickcount)+1
 		}
@@ -18,6 +8,13 @@
 			localStorage.clickcount = 1
 		}
 		document.write(localStorage.clickcount)
+		console.log("Hello")
+		if(localStorage.clickcount==1){
+		var r = prompt("What is your name")
+		localStorage.setItem("name",r)
+		}
+		document.write("Name: "+localStorage.getItem("name"))
+		
 	</script>
 	<br />
 	<body bgcolor=#93B874>
