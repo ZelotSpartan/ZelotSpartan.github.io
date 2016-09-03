@@ -2,7 +2,24 @@
 <HTML>
 	<script>
 		console.log("Hello")
+		if(localStorage.getItem("name")=="null"){
+		var r = prompt("What is your name")
+		localStorage.setItem("name",r)
+		}
+		document.write("Name: "+localStorage.getItem("name"))
+		
 	</script>
+	<br />
+	<script>
+		if(localStorage.clickcount){
+			localStorage.clickcount = Number(localStorage.clickcount)+1
+		}
+		else{
+			localStorage.clickcount = 1
+		}
+		document.write(localStorage.clickcount)
+	</script>
+	<br />
 	<body bgcolor=#93B874>
 		<Title>My Website</Title>
 		Welcome to my website!
