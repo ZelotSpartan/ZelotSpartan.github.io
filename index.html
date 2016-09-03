@@ -2,7 +2,7 @@
 <HTML>
 	<script>
 		console.log("Hello")
-		if(localStorage.getItem("name")=="null"){
+		if(localStorage.getItem("name")=="null"||localStorage.getItem("name")==null){
 		var r = prompt("What is your name")
 		localStorage.setItem("name",r)
 		}
