@@ -53,7 +53,7 @@ function newUser(){
 		alert("A field is empty")
 	}
 }
-	function newUser(){
+function getUser(){
 	var password = document.getElementById('pword').value;
 	var email = document.getElementById('email').value;
 	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
@@ -80,7 +80,8 @@ function newUser(){
 		Password:
 		<textarea rows="1" cols="20" id="pword" type="password"></textarea>
 		<br />
-		<button type="button" onclick="newUser()">Submit</button>
+		<button type="button" onclick="newUser()">Create</button>
+		<button type="button" onclick="getUser()">Login</button>
 	</body>
 </HTML>
 
