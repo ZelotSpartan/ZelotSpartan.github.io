@@ -60,7 +60,6 @@ function newUser(){
 	}else{
 		alert("A field is blank")
 	}
-	alert(firebase.database().ref('users/'))
 }
 </script>
     
@@ -76,7 +75,7 @@ function newUser(){
 		<textarea rows="1" cols="20" id="email"></textarea>
 		<br />
 		Password:
-		<textarea rows="1" cols="20" id="pword"></textarea>
+		<textarea rows="1" cols="20" id="pword" type="password"></textarea>
 		<br />
 		<button type="button" onclick="newUser()">Submit</button>
 	</body>
