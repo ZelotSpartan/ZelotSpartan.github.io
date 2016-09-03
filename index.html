@@ -41,20 +41,36 @@
 	var database = firebase.database();
 	var r = prompt("What is your name")
 	var e = prompt("What is your email")
-	var newPostKey = database.ref().child('users').push().key;
 function writeUserData(userId, name, email) {
   firebase.database().ref('users/' + userId).set({
     username: name,
     email: email,
   });
 }
-	writeUserData(newPostKey,r,e);
+function newUser(){
+	if(document.getElementById('uname').value!=null||document.getElementById('pword').value!=null){
+	var newPostKey = database.ref().child('users').push().key;
+	var text1 = document.getElementById('uname').value;
+	var text2 = document.getElementById('pword').value;
+	writeUserData(newPostKey,text1,text2);
+	}else{
+		alert("A field is blank")
+	}
+}
 </script>
     
 	<br />
 	<body bgcolor=#93B874>
 		<Title>My Website</Title>
 		Welcome to my website!
+		<br />
+		UserName:
+		<textarea rows="1" cols="20" id="uname"></textarea>
+		<br />
+		Password:
+		<textarea rows="1" cols="20" id="pword"></textarea>
+		<br />
+		<button type="button" onclick="newUser()">Submit</button>
 	</body>
 </HTML>
 <!--
