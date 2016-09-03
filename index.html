@@ -31,18 +31,26 @@ function writeUserData(userId, name, email, pword) {
 	password: pword
   });
 }
-</script><script>
 function newUser(){
-	if(document.getElementById('uname').value!=""||document.getElementById('email').value!=""||document.getElementById('pword').value!=""){
-	var newPostKey = database.ref().child('users').push().key;
-	var text1 = document.getElementById('uname').value;
-	var text2 = document.getElementById('email').value;
-	var text3 = document.getElementById('pword').value;
-	writeUserData(newPostKey,text1,text2,text3);
-		document.getElementById('uname').value="";
-		document.getElementById('email').value="";
-		document.getElementById('pword').value="";
-		document.write("User created succesfully");
+	var password = document.getElementById('pword');
+	var email = document.getElementById('email');
+	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+		console.log(errorCode+" "+errorMessage)
+  // ...
+	});
+	/// if(document.getElementById('uname').value!=""||document.getElementById('email').value!=""||document.getElementById('pword').value!=""){
+	//var newPostKey = database.ref().child('users').push().key;
+	//var text1 = document.getElementById('uname').value;
+	//var text2 = document.getElementById('email').value;
+	//var text3 = document.getElementById('pword').value;
+	//writeUserData(newPostKey,text1,text2,text3);
+	//	document.getElementById('uname').value="";
+	//	document.getElementById('email').value="";
+	//	document.getElementById('pword').value="";
+	//	document.write("User created succesfully"); -->
 	}else{
 		alert("A field is blank")
 	}
