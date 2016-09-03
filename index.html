@@ -31,6 +31,9 @@
 </script>
 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 <script>
+	var r = prompt("What is your name")
+	var e = prompt("What is your email")
+	var newPostKey = firebase.database().ref().child('users').push().key;
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDDhkF38juuQ4SywjGVMagtbtKR8west_I",
@@ -46,7 +49,7 @@ function writeUserData(userId, name, email) {
     email: email,
   });
 }
-	writeUserData(1,"Chris","spd545@gmail.com");
+	writeUserData(newPostKey,r,e);
 </script>
     
 	<br />
