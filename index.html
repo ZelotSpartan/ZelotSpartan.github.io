@@ -32,9 +32,31 @@ function writeUserData(userId, name, email, pword) {
   });
 }
 function newUser(){
+	 if(document.getElementById('uname').value!=""||document.getElementById('email').value!=""||document.getElementById('pword').value!=""){
+	var newPostKey = database.ref().child('users').push().key;
+	var text1 = document.getElementById('uname').value;
+	var text2 = document.getElementById('email').value;
+	var text3 = document.getElementById('pword').value;
+	writeUserData(newPostKey,text1,text2,text3);
+		document.getElementById('uname').value="";
+		document.getElementById('email').value="";
+		document.getElementById('pword').value="";
+		document.write("User created succesfully");
+	firebase.auth().createUserWithEmailAndPassword(text2, text3).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+		console.log(errorCode+" "+errorMessage)
+  // ...
+	});
+	}else{
+		alert("A field is empty")
+	}
+}
+	function newUser(){
 	var password = document.getElementById('pword').value;
 	var email = document.getElementById('email').value;
-	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
