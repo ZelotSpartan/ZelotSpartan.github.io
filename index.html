@@ -46,7 +46,7 @@ function writeUserData(userId, name, email) {
   });
 }
 function newUser(){
-	if(document.getElementById('uname').value!=n""||document.getElementById('pword').value!=""){
+	if(document.getElementById('uname').value!=""||document.getElementById('pword').value!=""){
 	var newPostKey = database.ref().child('users').push().key;
 	var text1 = document.getElementById('uname').value;
 	var text2 = document.getElementById('email').value;
