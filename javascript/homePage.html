@@ -72,6 +72,7 @@ document.getElementById("status").innerHTML += "NOT SIGNED IN";
   }
 });
 if(firebase.auth().currentUser == null){}else{window.location.replace("http://zelotspartan.github.io/javascript/createUser.html");}
+document.getElementById("til").innerHTML = firebase.auth().currentUser;
 </script>
 
 
