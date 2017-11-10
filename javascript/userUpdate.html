@@ -28,7 +28,6 @@ a:link#ink2, a:visited#ink2, a:hover#ink2, a:active#ink2 {
 
 <body background="../bg.png">
 <div id="itle"><h1 align="left" id="til"><b>User Update </b></h1></div>
-Email: <input id="em" /><br />
 Username: <input id="un" /><br />
 <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-app.js"></script>
@@ -47,20 +46,22 @@ Username: <input id="un" /><br />
     messagingSenderId: "625673793511"
   };
   firebase.initializeApp(config);
+  var user = firebase.auth().currentUser;
+  
   function myFunction(){
   
-}
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    var displayName = user.displayName;
-    var email = user.email;
-    var uid = user.uid;
-document.getElementById("til").innerHTML += user.email;
-  } else {
-  window.location.replace("https://zelotspartan.github.io/javascript/createUser.html");
-  }
+
+user.updateProfile({
+  displayName: document.getElementById("un")
+}).then(function() {
+  // Update successful.
+  document.getElementById("til").innerHTML = "Updated!";
+}).catch(function(error) {
+  // An error happened.
 });
+
+}
+document.getElementById("til").innerHTML += user.displayName + " " + user.email;
 </script>
 
 <button onclick="myFunction()">Click</button>
