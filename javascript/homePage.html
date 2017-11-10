@@ -68,11 +68,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     var uid = user.uid;
 document.getElementById("status").innerHTML += user.displayName;
   } else {
-document.getElementById("status").innerHTML += "NOT SIGNED IN";
+document.getElementById("status").innerHTML += "<a href=\"createUser.html\" id=\"ink\">NOT SIGNED IN</a>";
   }
 });
-if(firebase.auth().currentUser == null){}else{window.location.replace("http://zelotspartan.github.io/javascript/createUser.html");}
-document.getElementById("til").innerHTML = firebase.auth().currentUser;
+if(firebase.auth().currentUser==""){}else{window.location.replace("http://zelotspartan.github.io/javascript/createUser.html");}
 </script>
 
 
