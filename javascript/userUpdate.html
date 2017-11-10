@@ -49,8 +49,6 @@ Username: <input id="un" /><br />
   var user = firebase.auth().currentUser;
   
   function myFunction(){
-  
-
 user.updateProfile({
   displayName: document.getElementById("un")
 }).then(function() {
@@ -58,10 +56,12 @@ user.updateProfile({
   document.getElementById("til").innerHTML = "Updated!";
 }).catch(function(error) {
   // An error happened.
+  document.getElementById("til").innerHTML = "Error with displayName";
 });
 
 }
 document.getElementById("til").innerHTML += user.displayName + " " + user.email;
+if(user){}else{window.location.replace("http://zelotspartan.github.io/javascript/createUser.html");}
 </script>
 
 <button onclick="myFunction()">Click</button>

@@ -53,6 +53,7 @@ a:link#ink2, a:visited#ink2, a:hover#ink2, a:active#ink2 {
   var errorCode = error.code;
   var errorMessage = error.message;
   // ...
+  document.getElementById("til").innerHTML = "Error with email/password";
 });
 }
 firebase.auth().onAuthStateChanged(function(user) {
