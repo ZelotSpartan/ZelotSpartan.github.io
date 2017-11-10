@@ -31,6 +31,7 @@ a:link#ink, a:visited#ink, a:hover#ink, a:active#ink {
 a:link#ink2, a:visited#ink2, a:hover#ink2, a:active#ink2 {
 	color: #C3C3C3;
 	text-decoration: none;
+	font-size: 20pt;
 } 
 </style>
 
@@ -68,7 +69,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     var uid = user.uid;
 document.getElementById("status").innerHTML += user.displayName;
   } else {
-document.getElementById("status").innerHTML += "<a href=\"createUser.html\" id=\"ink\">NOT SIGNED IN</a>";
+document.getElementById("status").innerHTML += "<a href=\"createUser.html\" id=\"ink2\">NOT SIGNED IN</a>";
   }
 });
 </script>
