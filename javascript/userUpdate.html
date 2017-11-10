@@ -46,9 +46,9 @@ Username: <input id="un" /><br />
     messagingSenderId: "625673793511"
   };
   firebase.initializeApp(config);
-  var user = firebase.auth().currentUser;
   
   function myFunction(){
+  var user = firebase.auth().currentUser;
 user.updateProfile({
   displayName: document.getElementById("un")
 }).then(function() {
@@ -60,7 +60,17 @@ user.updateProfile({
 });
 
 }
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    var displayName = user.displayName;
+    var email = user.email;
+    var uid = user.uid;
 document.getElementById("til").innerHTML += user.displayName + " " + user.email;
+  } else {
+  
+  }
+});
 if(user){}else{window.location.replace("http://zelotspartan.github.io/javascript/createUser.html");}
 </script>
 
