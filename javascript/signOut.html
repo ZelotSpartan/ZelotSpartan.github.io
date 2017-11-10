@@ -51,6 +51,7 @@ a:link#ink2, a:visited#ink2, a:hover#ink2, a:active#ink2 {
 }, function(error) {
 });
 }
+if(firebase.auth().currentUser == null){}else{window.location.replace("http://zelotspartan.github.io/javascript/createUser.html");}
 </script>
 
 <button onclick="myFunction()">Sign Out!</button>
