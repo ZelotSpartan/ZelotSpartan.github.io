@@ -48,15 +48,13 @@ Username: <input id="un" /><br />
   firebase.initializeApp(config);
   
   function myFunction(){
-  var user = firebase.auth().currentUser;
-user.updateProfile({
+firebase.auth().currentUser.updateProfile({
   displayName: document.getElementById("un").value
 }).then(function() {
   // Update successful.
   document.getElementById("til").innerHTML = "Updated!";
 }).catch(function(error) {
   // An error happened.
-  document.getElementById("til").innerHTML = "Error with displayName";
 });
 
 }
