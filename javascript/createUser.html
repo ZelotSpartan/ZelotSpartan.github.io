@@ -47,14 +47,26 @@ a:link#ink2, a:visited#ink2, a:hover#ink2, a:active#ink2 {
     messagingSenderId: "625673793511"
   };
   firebase.initializeApp(config);
-  function myFunction(){
+  
+  function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
+  firebase.database().ref("acceptingLogins").once("value").then(function(snapshot) {
+  document.getElementById("asdf").value = snapshot.val();
+});
+  
+ function myFunction(){if(document.getElementById("asdf").value=="FALSE"){document.getElementById("til").innerHTML = "Account Creation Is Denied at this time!";}else{
   firebase.auth().createUserWithEmailAndPassword(document.getElementById("em").value, document.getElementById("pw").value).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
   // ...
   document.getElementById("til").innerHTML = "Error with email/password";
-});
+});}
 }
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -73,6 +85,7 @@ window.location.replace("http://zelotspartan.github.io/javascript/signIn.html");
 
 <button onclick="myFunction()">Create!</button>
 
+  <p id="asdf"></p>
 <h1>Already Have an Account?</h1><button onclick="myFunctiona()">Yes</button>
 
 <a href="../index.html" id="ink">Return To Main Menu</a></body>
